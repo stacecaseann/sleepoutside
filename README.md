@@ -7,7 +7,7 @@
 
  - https://byui-cse.github.io/wdd330-ww-course/week01/team.html
 
-### dreamy-sprinkles-656454.netlify.app
+### https://spiffy-longma-e92a3c.netlify.app
 
 ### Prerequisites
 
