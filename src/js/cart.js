@@ -27,16 +27,13 @@ function cartItemTemplate(item) {
 function removeItemFromCart(itemId) {
   let cart = JSON.parse(localStorage.getItem('so-cart')) || [];
 
-  // Find the item in the cart
   const itemIndex = cart.findIndex(item => item.Id === itemId);
   if (itemIndex !== -1) {
     const item = cart[itemIndex];
     
-    // If quantity is greater than 1, reduce it by 1
     if (item.Quantity > 1) {
       cart[itemIndex].Quantity -= 1;
     } else {
-      // If quantity is 1, remove the item completely
       cart.splice(itemIndex, 1);
     }
   }
