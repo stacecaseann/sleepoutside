@@ -7,7 +7,8 @@
 
  - https://byui-cse.github.io/wdd330-ww-course/week01/team.html
 
-### https://spiffy-longma-e92a3c.netlify.app
+### Netlify Deployment
+https://spiffy-longma-e92a3c.netlify.app
 
 ### Prerequisites
 
