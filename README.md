@@ -7,6 +7,9 @@
 
  - https://byui-cse.github.io/wdd330-ww-course/week01/team.html
 
+### Netlify Deployment
+https://spiffy-longma-e92a3c.netlify.app
+
 ### Prerequisites
 
 - You must have Node installed to run the following commands.
