@@ -1,6 +1,6 @@
 :root {
   --font-body: Arial, Helvetica, sans-serif;
-  --font-headline: Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  --font-headline: Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   /* colors */
   --primary-color: #f0a868;
   --secondary-color: #525b0f;
@@ -203,18 +203,18 @@ button {
 }
 
 /* Cart Total */
-.cart-total
-{
+.cart-total {
   position: absolute;
   background-color: red;
   border-radius: 50%;
-  top: 5px; right: -2px;
+  top: 5px;
+  right: -2px;
   padding: 3px;
-  font-size: .9rem;
+  font-size: 0.9rem;
 }
 .cart {
   position: relative;
-  display:inline-block;
+  display: inline-block;
 }
 
 @media screen and (min-width: 500px) {
