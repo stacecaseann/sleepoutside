@@ -1,5 +1,5 @@
-import { setLocalStorage } from "./utils.mjs";
-
+import { getLocalStorage, setLocalStorage } from "./utils.mjs";
+import CartTotal from "./CartTotal.mjs";
 function productDetailsTemplate(product) {
   return `<section class="product-detail"> <h3>${product.Brand.Name}</h3>
     <h2 class="divider">${product.NameWithoutBrand}</h2>
@@ -23,6 +23,7 @@ export default class ProductDetails {
     this.productId = productId;
     this.product = {};
     this.dataSource = dataSource;
+    this.cartTotal = CartTotal.getInstance();
   }
   async init() {
     // use our datasource to get the details for the current product. findProductById will return a promise! use await or .then() to process it
@@ -36,7 +37,10 @@ export default class ProductDetails {
       .addEventListener("click", this.addToCart.bind(this));
   }
   addToCart() {
-    setLocalStorage("so-cart", this.product);
+    const cart = getLocalStorage('so-cart') || [];
+    cart.push(this.product);
+    setLocalStorage('so-cart', cart);
+    this.cartTotal.updateTotal(cart.length);
   }
   renderProductDetails(selector) {
     const element = document.querySelector(selector);

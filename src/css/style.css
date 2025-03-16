@@ -202,6 +202,21 @@ button {
   grid-column: 3;
 }
 
+/* Cart Total */
+.cart-total
+{
+  position: absolute;
+  background-color: red;
+  border-radius: 50%;
+  top: 5px; right: -2px;
+  padding: 3px;
+  font-size: .9rem;
+}
+.cart {
+  position: relative;
+  display:inline-block;
+}
+
 @media screen and (min-width: 500px) {
   body {
     max-width: 1080px;
