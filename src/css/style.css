@@ -217,6 +217,30 @@ button {
   display: inline-block;
 }
 
+.highlight {
+  color: var(--tertiary-color);
+}
+
+.title {
+  font-size: 2.2rem;
+  font-variant: small-caps;
+  text-shadow: 0 0 .5em #777;
+}
+.product-grid
+{
+  display: flex;
+  flex-direction: row;
+  list-style-type:none;
+  text-align: center;
+}
+.product-grid a{
+  text-decoration: none;
+  color: var(--dark-grey);
+  font-size: var(--small-font);
+}
+.product-grid img {
+  width: min(100px, 90%);
+}
 @media screen and (min-width: 500px) {
   body {
     max-width: 1080px;
