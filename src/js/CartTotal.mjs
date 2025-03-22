@@ -19,6 +19,13 @@ export default class CartTotal{
     updateTotal(total)
     {
         this.total = total;
+        if (!this.cartElement)
+        {
+            this.cartElement = document.getElementById("cart-total");
+        }
+        if (this.cartElement)
+        {
         this.cartElement.textContent = this.total;
+        }
     }
 }
