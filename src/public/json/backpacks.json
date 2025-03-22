@@ -1,12 +1,4 @@
-{
-  "Count": 64,
-  "Page": 1,
-  "PerPage": 24,
-  "NextPageUrl": "/api/1.0/products/s~backpacks/?page=2",
-  "LastPageUrl": "/api/1.0/products/s~backpacks/?page=3",
-  "RefinementsUrl": "/api/1.0/refinements/search~backpacks/",
-  "Title": "Search for \"backpacks\" ",
-  "Result": [
+[
     {
       "Id": "223RN",
       "IsClearance": false,
@@ -3479,4 +3471,3 @@
       "FinalPrice": 19.99
     }
   ]
-}
