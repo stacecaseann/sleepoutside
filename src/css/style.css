@@ -196,7 +196,18 @@ button {
   grid-row: 1;
   grid-column: 3;
 }
+.cart-qty-minus,
+.cart-qty-plus{
+  color: var(--dark-grey);
+  font-weight: bold;
+  cursor: pointer;
+}
+.cart-qty-minus:hover,
+.cart-qty-plus:hover
+{
+color: red;
 
+}
 .cart-card__price {
   grid-row: 2;
   grid-column: 3;
