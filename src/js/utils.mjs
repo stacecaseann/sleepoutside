@@ -1,3 +1,4 @@
+import CartTotal from "./CartTotal.mjs";
 // wrapper for querySelector...returns matching element
 export function qs(selector, parent = document) {
   return parent.querySelector(selector);
@@ -7,11 +8,22 @@ export function qs(selector, parent = document) {
 
 // retrieve data from localstorage
 export function getLocalStorage(key) {
-  return JSON.parse(localStorage.getItem(key));
+  
+  return JSON.parse(localStorage.getItem(key)) || {};
 }
 // save data to local storage
 export function setLocalStorage(key, data) {
   localStorage.setItem(key, JSON.stringify(data));
+}
+export function getCartTotal(cart)
+{
+    let ttl = 0;
+    for (let key in cart)
+    {
+      const currentQty = cart[key].qty;
+      ttl += currentQty;
+    }
+    return ttl;
 }
 // set a listener for both touchend and click
 export function setClick(selector, callback) {
@@ -77,4 +89,6 @@ export async function loadHeaderFooter()
   const footerElement = document.querySelector('#main-footer');
   renderWithTemplate(headerTemplate, headerElement);
   renderWithTemplate(footerTemplate, footerElement);
+  const cartTotal = CartTotal.getInstance();
+  cartTotal.showTotal();
 }

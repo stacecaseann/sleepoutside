@@ -1,4 +1,4 @@
-import { getLocalStorage, setLocalStorage } from "./utils.mjs";
+import { getLocalStorage, setLocalStorage, getCartTotal } from "./utils.mjs";
 import CartTotal from "./CartTotal.mjs";
 
 
@@ -21,10 +21,27 @@ export default class ProductDetails {
       .addEventListener("click", this.addToCart.bind(this));
   }
   addToCart() {
-    const cart = getLocalStorage('so-cart') || [];
-    cart.push(this.product);
+    //cart item should have id, product, qty
+    const cart = getLocalStorage('so-cart');
+    
+    const productId = this.product.Id;
+    var existingItem = Object.values(cart).find(item => item.id === productId);
+
+    if(existingItem)
+    {
+      existingItem.qty +=1;
+    }
+    else
+    {
+      cart[productId] = {id:this.product.Id, product:this.product, qty:1};
+    }
+    //Change to dictionary with id, product, qty
+    //Find if this product id exists in the cart. If so, add the qty, otherwise add the product with qty 1
+
+    // //cart.push(this.product);
     setLocalStorage('so-cart', cart);
-    this.cartTotal.updateTotal(cart.length);
+    const ttl = getCartTotal(cart);
+    this.cartTotal.updateTotal(ttl);
   }
   renderProductDetails() {
     productDetailsTemplate(this.product);

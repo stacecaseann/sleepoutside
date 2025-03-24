@@ -1,3 +1,4 @@
+import { getLocalStorage, getCartTotal } from './utils.mjs';
 export default class CartTotal{
     constructor()
     {
@@ -18,6 +19,7 @@ export default class CartTotal{
     }
     updateTotal(total)
     {
+        
         this.total = total;
         if (!this.cartElement)
         {
@@ -25,7 +27,13 @@ export default class CartTotal{
         }
         if (this.cartElement)
         {
-        this.cartElement.textContent = this.total;
+            this.cartElement.textContent = this.total;
         }
+    }
+    showTotal()
+    {
+        const cart = getLocalStorage('so-cart') || [];
+        this.updateTotal(getCartTotal(cart));
+
     }
 }
