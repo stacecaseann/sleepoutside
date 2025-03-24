@@ -42,6 +42,7 @@ export default class ProductDetails {
     setLocalStorage('so-cart', cart);
     const ttl = getCartTotal(cart);
     this.cartTotal.updateTotal(ttl);
+    
   }
   renderProductDetails() {
     productDetailsTemplate(this.product);
