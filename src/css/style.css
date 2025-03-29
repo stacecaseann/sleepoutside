@@ -93,6 +93,11 @@ button {
 }
 .divider {
   border-bottom: 2px solid var(--primary-color);
+
+}
+.checkout{
+  display: grid;
+  grid-template-columns: 2fr 1fr;
 }
 /* End utility classes */
 
@@ -109,7 +114,46 @@ button {
 .cart:hover svg {
   fill: gray;
 }
+/*Form*/
+.form{
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  flex-wrap: wrap;
+  min-width: 200px;
+  overflow: hidden;
+  flex: 1;
+  margin: 2rem;
+  background: tan;
+}
+.form fieldset{
+  margin: 1rem;
+  border: none;/*2px solid var(--dark-blue); */
+  /* background-color: var(--off-white); */
 
+}
+.form label{
+  display:block;
+  padding-top: 1rem;
+}
+.form input[type="text"],
+.form textarea, 
+.form input[type="email"],
+.form input[type="month"],
+.form input[type="password"]
+{
+  display: block;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid var(black);
+  margin-top: 5px;
+  
+}
+.required
+{
+  color: var(--orange);
+}
 /* End cart icon styles */
 
 .mission {
