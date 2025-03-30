@@ -1,4 +1,10 @@
-import { getCartTotal, getLocalStorage } from "./utils.mjs";
+import { 
+  getCartTotal, 
+  getLocalStorage, 
+  setLocalStorage,
+  alertMessage,
+  removeAllAlerts
+ } from "./utils.mjs";
 import ExternalServices from "./ExternalServices.mjs";
 
 const services = new ExternalServices();
@@ -17,10 +23,10 @@ function packageItems(items) {
   const simplifiedItems = Object.values(items).map((item) => {
     console.log(item);
     return {
-      id: item.Id,
-      price: item.FinalPrice,
-      name: item.Name,
-      quantity: 1,
+      id: item.product.Id,
+      price: item.product.FinalPrice,
+      name: item.product.Name,
+      quantity: item.qty,
     };
   });
   return simplifiedItems;
@@ -98,12 +104,19 @@ export default class CheckoutProcess {
     order.tax = this.tax;
     order.shipping = this.shipping;
     order.items = packageItems(this.list);
-    //console.log(order);
-
+    console.log(order);
     try {
       const response = await services.checkout(order);
       console.log(response);
+      setLocalStorage('so-cart', []);
+      location.assign('/checkout/success.html');
+
     } catch (err) {
+      removeAllAlerts();
+      for(let message in err.message)
+      {
+        alertMessage(err.message[message]);
+      }
       console.log(err);
     }
   }

@@ -321,6 +321,18 @@ color: red;
 .product-grid img {
   width: min(100px, 90%);
 }
+/* alert styles */
+.alert {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5em;
+  background-color: var(--primary-color);
+  border: 1px solid darkorange;
+}
+.alert > p {
+  margin: 0;
+}
 @media screen and (min-width: 500px) {
   body {
     max-width: 1080px;

@@ -13,6 +13,15 @@ export function getLocalStorage(key) {
 }
 // save data to local storage
 export function setLocalStorage(key, data) {
+//   console.log(JSON.stringify(data));
+//   console.log(JSON.stringify(data['880RT'].qty));
+//   console.log(JSON.stringify(data['880RT'].id));
+//   console.log(JSON.stringify(data['880RT'].product));
+//   console.log(data);
+//   console.log(Array.isArray(data));  // Check if it's an array
+// console.log(typeof data);          // Check if it's an object
+  console.log(JSON.stringify(data));
+
   localStorage.setItem(key, JSON.stringify(data));
 }
 export function getCartTotal(cart)
@@ -91,4 +100,32 @@ export async function loadHeaderFooter()
   renderWithTemplate(footerTemplate, footerElement);
   const cartTotal = CartTotal.getInstance();
   cartTotal.showTotal();
+}
+
+export function alertMessage(message, scroll = true) {
+  // create element to hold the alert
+  const alert = document.createElement('div');
+  // add a class to style the alert
+  alert.classList.add('alert');
+  alert.innerHTML = `<p>${message}</p><span>X</span>`;
+
+  // add a listener to the alert to see if they clicked on the X
+  // if they did then remove the child
+  alert.addEventListener('click', function(e) {
+      if( e.target.tagName == 'SPAN') { // how can you tell if they clicked on the X or on something else?  hint: check out e.target.tagName or e.target.innerText
+        main.removeChild(this);
+      }
+  })
+  // add the alert to the top of main
+  const main = document.querySelector('main');
+  main.prepend(alert);
+  // make sure they see the alert by scrolling to the top of the window
+  // you may not always want to do this...so default to scroll=true, but allow it to be passed in and overridden.
+  if(scroll)
+    window.scrollTo(0,0);
+}
+
+export function removeAllAlerts() {
+  const alerts = document.querySelectorAll(".alert");
+  alerts.forEach((alert) => document.querySelector("main").removeChild(alert));
 }
