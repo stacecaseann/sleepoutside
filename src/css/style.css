@@ -25,6 +25,11 @@ body {
 img {
   max-width: 100%;
 }
+.checkout-form{
+  display:flex;
+  flex-direction: row;
+  border: 1px solid black;
+}
 header {
   display: flex;
   justify-content: space-between;
@@ -93,7 +98,32 @@ button {
 }
 .divider {
   border-bottom: 2px solid var(--primary-color);
+
 }
+.checkout{
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  /* border: 1px solid black; */
+  margin: 3rem;
+  justify-content: start; /* Push everything to the start */
+  align-items: start; /* Align items to the top */
+  gap: 10px; /* Optional: Adds spacing between items */
+  width: fit-content; /* Prevents unnecessary stretching */
+  height: fit-content;
+  grid-auto-flow: row; /* Ensures rows form properly */
+}
+.checkout div:nth-child(even) {
+  text-align: right; /* Values aligned right */
+}
+.line {
+  width: 100%;
+  border: none;
+  height: 2px;
+  background-color: black;
+}
+/* .checkout div{
+  border: 1px solid black;
+} */
 /* End utility classes */
 
 /* Cart icon styles */
@@ -109,7 +139,46 @@ button {
 .cart:hover svg {
   fill: gray;
 }
+/*Form*/
+.form{
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  flex-wrap: wrap;
+  min-width: 200px;
+  overflow: hidden;
+  flex: 1;
+  margin: 2rem;
+  background: tan;
+}
+.form fieldset{
+  margin: 1rem;
+  border: none;/*2px solid var(--dark-blue); */
+  /* background-color: var(--off-white); */
 
+}
+.form label{
+  display:block;
+  padding-top: 1rem;
+}
+.form input[type="text"],
+.form textarea, 
+.form input[type="email"],
+.form input[type="month"],
+.form input[type="password"]
+{
+  display: block;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid var(black);
+  margin-top: 5px;
+  
+}
+.required
+{
+  color: var(--orange);
+}
 /* End cart icon styles */
 
 .mission {
