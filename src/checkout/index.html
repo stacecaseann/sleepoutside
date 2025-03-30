@@ -8,7 +8,7 @@
 
     <title>Sleep Outside | Checkout</title>
     <script src="../js/checkout.js" type="module"></script>
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="../css/style.css" />
   </head>
 
   <body>
@@ -19,7 +19,8 @@
       <section class="products">
         <h2>Review & Place your Order</h2>
       </section>
-      <form class="form">
+      <div class="checkout-form">
+      <form name="checkout" class="form">
         <label for="firstname">First Name</label>
         <input type="text" id="firstname" name="firstname" autocomplete="given-name" required>
 
@@ -42,7 +43,7 @@
         <input type="text" id="postal" name="postal-code" autocomplete="postal-code" required>
 
         <label for="cardNumber">Credit Card Number</label>
-        <input type="text" id="cardNumber" name="cardNumber" pattern="\d{4} \d{4} \d{4} \d{4}" maxlength="19" placeholder="1234 5678 1234 5678" required>
+        <input value="1234123412341234" type="text" id="cardNumber" name="cardNumber"  placeholder="1234567812345678" required>
       
         <label for="expiryDate">Expiration Date</label>
         <input type="month" id="expiryDate" name="expiryDate" required>
@@ -50,11 +51,12 @@
         <label for="securityCode">Security Code (CVV)</label>
         <input type="password" id="securityCode" name="securityCode" maxlength="4" pattern="\d{3,4}" placeholder="123" required>
       
-        <input type="submit" value="Checkout">
+        <input type="submit" value="Checkout" id="checkoutSubmit">
       </form>
       <div class="checkout" id="checkout">
 
       </div>
+    </div>
     </main>
 
     <footer id="main-footer"></footer>
